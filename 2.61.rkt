@@ -1,0 +1,10 @@
+#lang racket
+(define (adjoin-set obj set)
+  (cond ((null? set) (list obj))
+        ((equal? obj (car set)) set)
+        ((< obj (car set)) (cons obj set))
+        (else (cons (car set)
+                    (adjoin-set obj (cdr set))))
+        )
+  )
+(adjoin-set 25 '(1 5 9 10 12 14))
